@@ -1,0 +1,1 @@
+﻿Install-Package Microsoft.Extensions.DependencyInjection.Abstractions

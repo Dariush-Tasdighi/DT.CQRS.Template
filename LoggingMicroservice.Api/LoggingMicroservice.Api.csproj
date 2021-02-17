@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+		<StartupObject>LoggingMicroservice.Api.Program</StartupObject>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="FluentResults" Version="2.3.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Dtx\Dtx.csproj" />
+		<ProjectReference Include="..\LoggingMicroservice.Application\LoggingMicroservice.Application.csproj" />
+		<ProjectReference Include="..\LoggingMicroservice.Core\LoggingMicroservice.Core.csproj" />
+		<ProjectReference Include="..\LoggingMicroservice.Domain\LoggingMicroservice.Domain.csproj" />
+		<ProjectReference Include="..\LoggingMicroservice.Persistence\LoggingMicroservice.Persistence.csproj" />
+	</ItemGroup>
+
+</Project>

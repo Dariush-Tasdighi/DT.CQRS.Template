@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="LogsFeature\EventHandlers\" />
+    <Folder Include="LogsFeature\Validations\" />
+    <Folder Include="LogsFeature\ViewModels\" />
+    <Folder Include="LogsFeature\QueryHandlers\" />
+    <Folder Include="LogsFeature\Queries\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="FluentResults" Version="2.3.0" />
+    <PackageReference Include="MediatR" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Dtx\Dtx.csproj" />
+    <ProjectReference Include="..\LoggingMicroservice.Domain\LoggingMicroservice.Domain.csproj" />
+    <ProjectReference Include="..\LoggingMicroservice.Persistence\LoggingMicroservice.Persistence.csproj" />
+    <ProjectReference Include="..\LoggingMicroservice.Resources\LoggingMicroservice.Resources.csproj" />
+  </ItemGroup>
+
+</Project>
