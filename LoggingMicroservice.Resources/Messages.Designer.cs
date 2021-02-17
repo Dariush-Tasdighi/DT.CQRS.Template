@@ -61,6 +61,24 @@ namespace LoggingMicroservice.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} is required!.
+        /// </summary>
+        public static string ErrorRequired {
+            get {
+                return ResourceManager.GetString("ErrorRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {PropertyName} is required!.
+        /// </summary>
+        public static string ErrorRequiredFluent {
+            get {
+                return ResourceManager.GetString("ErrorRequiredFluent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} Inserted Successfully..
         /// </summary>
         public static string SuccessInsert {

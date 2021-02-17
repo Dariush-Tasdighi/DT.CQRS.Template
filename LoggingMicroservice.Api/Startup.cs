@@ -1,3 +1,4 @@
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,7 +17,21 @@ namespace LoggingMicroservice.Api
 		public void ConfigureServices
 			(Microsoft.Extensions.DependencyInjection.IServiceCollection services)
 		{
-			services.AddControllers();
+			//services.AddControllers();
+
+			//AddFluentValidation -> Extension Method -> using FluentValidation.AspNetCore;
+			services.AddControllers()
+				.AddFluentValidation(current =>
+				{
+					current.RegisterValidatorsFromAssemblyContaining
+						<Application.LogsFeature.Validations.CreateLogCommandValidation>();
+
+					current.LocalizationEnabled = true; // Default: [true]
+					current.AutomaticValidationEnabled = true; // Default: [true]
+					current.ImplicitlyValidateChildProperties = false; // Default: [false]
+					current.ImplicitlyValidateRootCollectionElements = false; // Default: [false]
+					current.RunDefaultMvcValidationAfterFluentValidationExecutes = false; // Default: [true]
+				});
 
 			// **************************************************
 			services.AddTransient<Persistence.IUnitOfWork, Persistence.UnitOfWork>(current =>

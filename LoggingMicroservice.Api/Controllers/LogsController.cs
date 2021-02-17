@@ -23,41 +23,35 @@
 			return result;
 		}
 
-		//#region Post
-		//[Microsoft.AspNetCore.Mvc.HttpPost]
+		#region Post (Create Log)
+		[Microsoft.AspNetCore.Mvc.HttpPost]
 
-		//[Microsoft.AspNetCore.Mvc.ProducesResponseType
-		//	(type: typeof(FluentResults.Result<System.Guid>),
-		//	statusCode: Microsoft.AspNetCore.Http.StatusCodes.Status200OK)]
+		[Microsoft.AspNetCore.Mvc.ProducesResponseType
+			(type: typeof(FluentResults.Result<System.Guid>),
+			statusCode: Microsoft.AspNetCore.Http.StatusCodes.Status200OK)]
 
-		//[Microsoft.AspNetCore.Mvc.ProducesResponseType
-		//	(type: typeof(FluentResults.Result),
-		//	statusCode: Microsoft.AspNetCore.Http.StatusCodes.Status404NotFound)]
-		//public
-		//	async
-		//	System.Threading.Tasks.Task
-		//	<Microsoft.AspNetCore.Mvc.ActionResult<Domain.Models.Log>>
-		//	Post(int id)
-		//{
-		//	Models.User user = null;
+		[Microsoft.AspNetCore.Mvc.ProducesResponseType
+			(type: typeof(FluentResults.Result),
+			statusCode: Microsoft.AspNetCore.Http.StatusCodes.Status400BadRequest)]
+		public
+			async
+			System.Threading.Tasks.Task
+			<Microsoft.AspNetCore.Mvc.ActionResult<Domain.Models.Log>>
+			Post([Microsoft.AspNetCore.Mvc.FromBody]
+			Application.LogsFeature.Commands.CreateLogCommand command)
+		{
+			FluentResults.Result<System.Guid>
+				result = await Mediator.Send(command);
 
-		//	await System.Threading.Tasks.Task.Run(() =>
-		//	{
-		//		user =
-		//			Users
-		//			.Where(current => current.Id == id)
-		//			.FirstOrDefault();
-		//	});
-
-		//	if (user == null)
-		//	{
-		//		return NotFound(value: "User not found!");
-		//	}
-		//	else
-		//	{
-		//		return Ok(value: user);
-		//	}
-		//}
-		//#endregion /Get By Id Method	}
+			if (result.IsSuccess)
+			{
+				return Ok(value: result);
+			}
+			else
+			{
+				return BadRequest(error: result.ToResult());
+			}
+		}
+		#endregion /Post (Create Log)
 	}
 }
