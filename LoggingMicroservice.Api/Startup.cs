@@ -24,7 +24,7 @@ namespace LoggingMicroservice.Api
 				.AddFluentValidation(current =>
 				{
 					current.RegisterValidatorsFromAssemblyContaining
-						<Application.LogsFeature.Validations.CreateLogCommandValidation>();
+						<Application.LogsFeature.Validators.CreateLogCommandValidator>();
 
 					current.LocalizationEnabled = true; // Default: [true]
 					current.AutomaticValidationEnabled = true; // Default: [true]

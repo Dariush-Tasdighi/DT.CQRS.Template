@@ -20,6 +20,9 @@
 			<FluentResults.Result<System.Guid>>
 			Handle(Commands.CreateLogCommand request, System.Threading.CancellationToken cancellationToken)
 		{
+			//Validators.CreateLogCommandValidator
+			//	validator = new Validators.CreateLogCommandValidator(); 
+
 			Domain.Models.Log log =
 				Mapper.Map<Domain.Models.Log>(source: request);
 

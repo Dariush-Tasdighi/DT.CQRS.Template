@@ -1,11 +1,11 @@
 ﻿using FluentValidation;
 
-namespace LoggingMicroservice.Application.LogsFeature.Validations
+namespace LoggingMicroservice.Application.LogsFeature.Validators
 {
-	public class CreateLogCommandValidation :
+	public class CreateLogCommandValidator :
 		FluentValidation.AbstractValidator<Commands.CreateLogCommand>
 	{
-		public CreateLogCommandValidation() : base()
+		public CreateLogCommandValidator() : base()
 		{
 			RuleFor(current => current.ApplicationName)
 				.NotNull()
