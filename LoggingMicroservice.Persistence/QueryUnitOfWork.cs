@@ -1,20 +1,29 @@
 ﻿namespace LoggingMicroservice.Persistence
 {
-	public class QueryUnitOfWork : Microsoft.EntityFrameworkCore.DbContext
+	public class QueryUnitOfWork :
+		Dtx.Persistence.QueryUnitOfWork<QueryDatabaseContext>, IQueryUnitOfWork
 	{
 		public QueryUnitOfWork
-			(Microsoft.EntityFrameworkCore.DbContextOptions<QueryDatabaseContext> options) : base(options: options)
+			(Dtx.Persistence.Options options) : base(options: options)
 		{
 		}
 
-		// **********
-		public Microsoft.EntityFrameworkCore.DbSet<Domain.Models.Log> Logs { get; set; }
-		// **********
+		// **************************************************
+		private Domain.IRepositories.ILogRepository _logs;
 
-		protected override void OnModelCreating
-			(Microsoft.EntityFrameworkCore.ModelBuilder modelBuilder)
+		public Domain.IRepositories.ILogRepository Logs
 		{
-			base.OnModelCreating(modelBuilder);
+			get
+			{
+				if (_logs == null)
+				{
+					_logs =
+						new Repositories.LogRepository(databaseContext: DatabaseContext);
+				}
+
+				return _logs;
+			}
 		}
+		// **************************************************
 	}
 }

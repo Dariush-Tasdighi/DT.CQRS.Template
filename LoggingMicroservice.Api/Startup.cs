@@ -17,52 +17,24 @@ namespace LoggingMicroservice.Api
 		public void ConfigureServices
 			(Microsoft.Extensions.DependencyInjection.IServiceCollection services)
 		{
-			//services.AddControllers();
+			services.AddControllers();
 
 			//AddFluentValidation -> Extension Method -> using FluentValidation.AspNetCore;
-			services.AddControllers()
-				.AddFluentValidation(current =>
-				{
-					current.RegisterValidatorsFromAssemblyContaining
-						<Application.LogsFeature.Validators.CreateLogCommandValidator>();
+			//services.AddControllers()
+			//	.AddFluentValidation(current =>
+			//	{
+			//		current.RegisterValidatorsFromAssemblyContaining
+			//			<Application.LogsFeature.Validators.CreateLogCommandValidator>();
 
-					current.LocalizationEnabled = true; // Default: [true]
-					current.AutomaticValidationEnabled = true; // Default: [true]
-					current.ImplicitlyValidateChildProperties = false; // Default: [false]
-					current.ImplicitlyValidateRootCollectionElements = false; // Default: [false]
-					current.RunDefaultMvcValidationAfterFluentValidationExecutes = false; // Default: [true]
-				});
+			//		current.LocalizationEnabled = true; // Default: [true]
+			//		current.AutomaticValidationEnabled = true; // Default: [true]
+			//		current.ImplicitlyValidateChildProperties = false; // Default: [false]
+			//		current.ImplicitlyValidateRootCollectionElements = false; // Default: [false]
+			//		current.RunDefaultMvcValidationAfterFluentValidationExecutes = false; // Default: [true]
+			//	});
 
-			// **************************************************
-			services.AddTransient<Persistence.IUnitOfWork, Persistence.UnitOfWork>(current =>
-			{
-				string databaseConnectionString =
-					Configuration
-					.GetSection(key: "ConnectionStrings")
-					.GetSection(key: "CommandsConnectionString")
-					.Value;
-
-				string databaseProviderString =
-					Configuration
-					.GetSection(key: "CommandsDatabaseProvider")
-					.Value;
-
-				Dtx.Persistence.Enums.Provider databaseProvider =
-					(Dtx.Persistence.Enums.Provider)
-					System.Convert.ToInt32(databaseProviderString);
-
-				Dtx.Persistence.Options options =
-					new Dtx.Persistence.Options
-					{
-						Provider = databaseProvider,
-						ConnectionString = databaseConnectionString,
-					};
-
-				return new Persistence.UnitOfWork(options: options);
-			});
-			// **************************************************
-
-			Core.DependencyContainer.ConfigureServices(services: services);
+			Core.DependencyContainer.ConfigureServices
+				(configuration: Configuration, services: services);
 		}
 
 		public void Configure

@@ -22,6 +22,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggingMicroservice.Core", "LoggingMicroservice.Core\LoggingMicroservice.Core.csproj", "{ABAE3EF4-F921-429B-9C4E-8F0A1F2CA365}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistence", "Persistence", "{A05C3021-E545-4539-99A8-602A3729F459}"
+	ProjectSection(SolutionItems) = preProject
+		LoggingMicroservice.Persistence\IUnitOfWork.cs = LoggingMicroservice.Persistence\IUnitOfWork.cs
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggingMicroservice.Persistence", "LoggingMicroservice.Persistence\LoggingMicroservice.Persistence.csproj", "{E00B04F9-99B4-4B59-BC2B-BD1A4E475ACB}"
 EndProject
@@ -35,7 +38,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggingMicroservice.Applica
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{BB390F92-FB39-4765-A81C-A9646D3512C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggingMicroservice.Resources", "LoggingMicroservice.Resources\LoggingMicroservice.Resources.csproj", "{63A3E1BC-6554-4059-8D61-837ADF5969A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggingMicroservice.Resources", "LoggingMicroservice.Resources\LoggingMicroservice.Resources.csproj", "{63A3E1BC-6554-4059-8D61-837ADF5969A4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{A7E106CC-46A3-4244-BF46-3E411014CF7A}"
 	ProjectSection(SolutionItems) = preProject

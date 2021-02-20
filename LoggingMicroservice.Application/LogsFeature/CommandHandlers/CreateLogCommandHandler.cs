@@ -20,23 +20,39 @@
 			<FluentResults.Result<System.Guid>>
 			Handle(Commands.CreateLogCommand request, System.Threading.CancellationToken cancellationToken)
 		{
-			//Validators.CreateLogCommandValidator
-			//	validator = new Validators.CreateLogCommandValidator(); 
+			FluentResults.Result<System.Guid> result = null;
 
-			Domain.Models.Log log =
-				Mapper.Map<Domain.Models.Log>(source: request);
+			try
+			{
+				result =
+					new FluentResults.Result<System.Guid>();
 
-			await UnitOfWork.Logs.InsertAsync(entity: log);
+				await Utility.Validate<Commands.CreateLogCommand>
+					(validator: new Validators.CreateLogCommandValidator(), command: request, result: result);
 
-			FluentResults.Result<System.Guid>
-				result = new FluentResults.Result<System.Guid>();
+				if (result.IsFailed)
+				{
+					return result;
+				}
 
-			result.WithValue(value: log.Id);
+				Domain.Models.Log log =
+					Mapper.Map<Domain.Models.Log>(source: request);
 
-			string successInsert =
-				string.Format(Resources.Messages.SuccessInsert, nameof(Domain.Models.Log));
+				await UnitOfWork.Logs.InsertAsync(entity: log);
 
-			result.WithSuccess(successMessage: successInsert);
+				result.WithValue(value: log.Id);
+
+				string successInsert =
+					string.Format(Resources.Messages.SuccessInsert, nameof(Domain.Models.Log));
+
+				result.WithSuccess(successMessage: successInsert);
+			}
+			catch (System.Exception ex)
+			{
+				// Log
+
+				result.WithError(errorMessage: ex.Message);
+			}
 
 			return result;
 		}

@@ -7,6 +7,7 @@ namespace LoggingMicroservice.Application.LogsFeature.Validators
 	{
 		public CreateLogCommandValidator() : base()
 		{
+			// NotNull -> Extension Method -> using FluentValidation;
 			RuleFor(current => current.ApplicationName)
 				.NotNull()
 				.WithErrorCode(errorCode: "10")
