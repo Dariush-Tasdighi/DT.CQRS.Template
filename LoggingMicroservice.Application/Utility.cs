@@ -10,9 +10,12 @@
 			static
 			async
 			System.Threading.Tasks.Task
-			Validate<TCommand>
-			(FluentValidation.AbstractValidator<TCommand> validator, TCommand command, FluentResults.Result result)
+			<FluentResults.Result<TValue>>
+			Validate<TCommand, TValue>
+			(FluentValidation.AbstractValidator<TCommand> validator, TCommand command)
 		{
+			FluentResults.Result<TValue> result = new FluentResults.Result<TValue>();
+
 			FluentValidation.Results.ValidationResult
 				validationResult = await validator.ValidateAsync(instance: command);
 
@@ -23,6 +26,8 @@
 					result.WithError(errorMessage: error.ErrorMessage);
 				}
 			}
+
+			return result;
 		}
 	}
 }

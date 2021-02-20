@@ -10,17 +10,29 @@
 		}
 
 		[Microsoft.AspNetCore.Mvc.HttpGet]
-		public FluentResults.Result<System.Guid> Get()
+		public
+			async
+			System.Threading.Tasks.Task
+			<Microsoft.AspNetCore.Mvc.ActionResult<FluentResults.Result<System.Guid>>>
+			Get()
 		{
-			//return "Hello, World!";
-
 			Application.LogsFeature.Commands.CreateLogCommand
 				command = new Application.LogsFeature.Commands.CreateLogCommand();
 
 			FluentResults.Result<System.Guid>
-				result = Mediator.Send(command).Result;
+				result = await Mediator.Send(command);
 
-			return result;
+			// قبلا در فیلم‌های مربوطه گفتیم که دستور ذیل خطا می‌دهد
+			//return result;
+
+			if (result.IsSuccess)
+			{
+				return Ok(value: result);
+			}
+			else
+			{
+				return BadRequest(error: result.ToResult());
+			}
 		}
 
 		#region Post (Create Log)
@@ -36,7 +48,7 @@
 		public
 			async
 			System.Threading.Tasks.Task
-			<Microsoft.AspNetCore.Mvc.ActionResult<Domain.Models.Log>>
+			<Microsoft.AspNetCore.Mvc.ActionResult<System.Guid>>
 			Post([Microsoft.AspNetCore.Mvc.FromBody]
 			Application.LogsFeature.Commands.CreateLogCommand command)
 		{

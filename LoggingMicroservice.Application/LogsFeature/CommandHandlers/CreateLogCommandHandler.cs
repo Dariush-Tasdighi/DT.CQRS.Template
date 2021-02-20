@@ -24,28 +24,34 @@
 
 			try
 			{
+				// **************************************************
 				result =
-					new FluentResults.Result<System.Guid>();
-
-				await Utility.Validate<Commands.CreateLogCommand>
-					(validator: new Validators.CreateLogCommandValidator(), command: request, result: result);
+					await Utility.Validate<Commands.CreateLogCommand, System.Guid>
+					(validator: new Validators.CreateLogCommandValidator(), command: request);
 
 				if (result.IsFailed)
 				{
 					return result;
 				}
+				// **************************************************
 
+				// **************************************************
 				Domain.Models.Log log =
 					Mapper.Map<Domain.Models.Log>(source: request);
+				// **************************************************
 
+				// **************************************************
 				await UnitOfWork.Logs.InsertAsync(entity: log);
+				// **************************************************
 
+				// **************************************************
 				result.WithValue(value: log.Id);
 
 				string successInsert =
 					string.Format(Resources.Messages.SuccessInsert, nameof(Domain.Models.Log));
 
 				result.WithSuccess(successMessage: successInsert);
+				// **************************************************
 			}
 			catch (System.Exception ex)
 			{
