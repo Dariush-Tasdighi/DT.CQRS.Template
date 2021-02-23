@@ -1,6 +1,6 @@
 ﻿namespace Dtx.Logging
 {
-	public abstract class Logger<T> : object, ILogger<T>
+	public abstract class Logger<T> : object, ILogger<T> where T : class
 	{
 		protected Logger(Microsoft.AspNetCore.Http.IHttpContextAccessor httpContextAccessor = null) : base()
 		{

@@ -1,6 +1,6 @@
 ﻿namespace Dtx.Logging
 {
-	public class Log4NetAdapter<T> : Logger<T>
+	public class Log4NetAdapter<T> : Logger<T> where T : class
 	{
 		public Log4NetAdapter
 			(Microsoft.AspNetCore.Http.IHttpContextAccessor httpContextAccessor) : base(httpContextAccessor)

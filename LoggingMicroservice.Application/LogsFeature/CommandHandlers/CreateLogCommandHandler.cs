@@ -4,8 +4,11 @@
 		object, MediatR.IRequestHandler<Commands.CreateLogCommand, FluentResults.Result<System.Guid>>
 	{
 		public CreateLogCommandHandler
-			(Persistence.IUnitOfWork unitOfWork, AutoMapper.IMapper mapper) : base()
+			(Dtx.Logging.ILogger<CreateLogCommandHandler> logger,
+			AutoMapper.IMapper mapper,
+			Persistence.IUnitOfWork unitOfWork) : base()
 		{
+			Logger = logger;
 			Mapper = mapper;
 			UnitOfWork = unitOfWork;
 		}
@@ -13,6 +16,8 @@
 		protected AutoMapper.IMapper Mapper { get; }
 
 		protected Persistence.IUnitOfWork UnitOfWork { get; }
+
+		protected Dtx.Logging.ILogger<CreateLogCommandHandler> Logger { get; }
 
 		public
 			async
@@ -42,6 +47,8 @@
 
 				// **************************************************
 				await UnitOfWork.Logs.InsertAsync(entity: log);
+
+				await UnitOfWork.SaveAsync();
 				// **************************************************
 
 				// **************************************************
@@ -50,14 +57,17 @@
 				string successInsert =
 					string.Format(Resources.Messages.SuccessInsert, nameof(Domain.Models.Log));
 
-				result.WithSuccess(successMessage: successInsert);
+				result.WithSuccess
+					(successMessage: successInsert);
 				// **************************************************
 			}
 			catch (System.Exception ex)
 			{
-				// Log
+				Logger.LogError
+					(exception: ex, message: ex.Message);
 
-				result.WithError(errorMessage: ex.Message);
+				result.WithError
+					(errorMessage: ex.Message);
 			}
 
 			return result;

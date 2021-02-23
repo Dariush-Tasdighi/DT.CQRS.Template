@@ -1,6 +1,6 @@
 ﻿namespace Dtx.Logging
 {
-	public interface ILogger<T>
+	public interface ILogger<T> where T : class
 	{
 		void LogTrace
 			(string message, System.Collections.Hashtable parameters = null);

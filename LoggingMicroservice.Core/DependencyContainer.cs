@@ -15,6 +15,16 @@ namespace LoggingMicroservice.Core
 			Microsoft.Extensions.DependencyInjection.IServiceCollection services)
 		{
 			// **************************************************
+			services.AddTransient
+				<Microsoft.AspNetCore.Http.IHttpContextAccessor,
+				Microsoft.AspNetCore.Http.HttpContextAccessor>();
+
+			services.AddTransient
+				(serviceType: typeof(Dtx.Logging.ILogger<>),
+				implementationType: typeof(Dtx.Logging.NLogAdapter<>));
+			// **************************************************
+
+			// **************************************************
 			// AddMediatR() -> Extension Method -> using MediatR;
 			// GetTypeInfo() -> Extension Method -> using System.Reflection;
 			services.AddMediatR

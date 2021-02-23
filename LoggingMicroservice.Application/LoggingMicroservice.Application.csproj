@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Dtx.Logging\Dtx.Logging.csproj" />
     <ProjectReference Include="..\Dtx\Dtx.csproj" />
     <ProjectReference Include="..\LoggingMicroservice.Domain\LoggingMicroservice.Domain.csproj" />
     <ProjectReference Include="..\LoggingMicroservice.Persistence\LoggingMicroservice.Persistence.csproj" />

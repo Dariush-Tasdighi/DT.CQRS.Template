@@ -1,6 +1,6 @@
 ﻿namespace Dtx.Logging
 {
-	public class NLogAdapter<T> : Logger<T>
+	public class NLogAdapter<T> : Logger<T> where T : class
 	{
 		public NLogAdapter
 			(Microsoft.AspNetCore.Http.IHttpContextAccessor httpContextAccessor) : base(httpContextAccessor)

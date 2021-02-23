@@ -11,6 +11,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\Dtx.Logging\Dtx.Logging.csproj" />
 	  <ProjectReference Include="..\LoggingMicroservice.Application\LoggingMicroservice.Application.csproj" />
 	</ItemGroup>
 
