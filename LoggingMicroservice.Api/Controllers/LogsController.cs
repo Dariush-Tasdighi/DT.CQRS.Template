@@ -48,21 +48,23 @@
 		public
 			async
 			System.Threading.Tasks.Task
-			<Microsoft.AspNetCore.Mvc.ActionResult<System.Guid>>
+			<Microsoft.AspNetCore.Mvc.IActionResult>
 			Post([Microsoft.AspNetCore.Mvc.FromBody]
 			Application.LogsFeature.Commands.CreateLogCommand command)
 		{
 			FluentResults.Result<System.Guid>
 				result = await Mediator.Send(command);
 
-			if (result.IsSuccess)
-			{
-				return Ok(value: result);
-			}
-			else
-			{
-				return BadRequest(error: result.ToResult());
-			}
+			//if (result.IsSuccess)
+			//{
+			//	return Ok(value: result);
+			//}
+			//else
+			//{
+			//	return BadRequest(error: result.ToResult());
+			//}
+
+			return FluentResult(result: result);
 		}
 		#endregion /Post (Create Log)
 	}
