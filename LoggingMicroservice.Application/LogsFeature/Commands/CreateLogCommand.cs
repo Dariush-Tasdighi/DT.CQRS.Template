@@ -1,5 +1,9 @@
 ﻿namespace LoggingMicroservice.Application.LogsFeature.Commands
 {
+	//public class CreateLogCommand : MediatR.IRequest<System.Guid>
+
+	//public class CreateLogCommand : MediatR.IRequest<FluentResults.Result<System.Guid>>
+
 	public class CreateLogCommand : Dtx.Mediator.CommandWithReturnValue<System.Guid>
 	{
 		public CreateLogCommand() : base()

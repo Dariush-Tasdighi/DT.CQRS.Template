@@ -6,9 +6,6 @@
 
   <ItemGroup>
     <Folder Include="LogsFeature\EventHandlers\" />
-    <Folder Include="LogsFeature\ViewModels\" />
-    <Folder Include="LogsFeature\QueryHandlers\" />
-    <Folder Include="LogsFeature\Queries\" />
   </ItemGroup>
 
   <ItemGroup>
