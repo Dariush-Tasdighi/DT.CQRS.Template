@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace LoggingMicroservice.Application.LogsFeature.Queries.Validators
+namespace LoggingMicroservice.Application.LogsFeature.Queries
 {
 	public class GetLogsQueryValidator :
 		FluentValidation.AbstractValidator<GetLogsQuery>

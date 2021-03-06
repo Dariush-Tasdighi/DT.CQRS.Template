@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace LoggingMicroservice.Application.LogsFeature.Commands.Validators
+namespace LoggingMicroservice.Application.LogsFeature.Commands
 {
 	public class CreateLogCommandValidator :
 		FluentValidation.AbstractValidator<Commands.CreateLogCommand>
