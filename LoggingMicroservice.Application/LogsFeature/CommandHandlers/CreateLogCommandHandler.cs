@@ -32,7 +32,7 @@
 				// **************************************************
 				result =
 					await Utility.Validate<Commands.CreateLogCommand, System.Guid>
-					(validator: new Validators.CreateLogCommandValidator(), command: request);
+					(validator: new Commands.Validators.CreateLogCommandValidator(), command: request);
 
 				if (result.IsFailed)
 				{

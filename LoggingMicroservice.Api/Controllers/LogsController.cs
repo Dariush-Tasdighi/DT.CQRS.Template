@@ -9,31 +9,34 @@
 		{
 		}
 
-		[Microsoft.AspNetCore.Mvc.HttpGet]
+		#region Get (Get Some Logs)
+		[Microsoft.AspNetCore.Mvc.HttpGet(template: "{count}")]
+
+		[Microsoft.AspNetCore.Mvc.ProducesResponseType
+			(type: typeof(FluentResults.Result<System.Collections.Generic.IList<Domain.ViewModels.GetLogsQueryResponseViewModel>>),
+			statusCode: Microsoft.AspNetCore.Http.StatusCodes.Status200OK)]
+
+		[Microsoft.AspNetCore.Mvc.ProducesResponseType
+			(type: typeof(FluentResults.Result),
+			statusCode: Microsoft.AspNetCore.Http.StatusCodes.Status400BadRequest)]
 		public
 			async
 			System.Threading.Tasks.Task
-			<Microsoft.AspNetCore.Mvc.ActionResult<FluentResults.Result<System.Guid>>>
-			Get()
+			<Microsoft.AspNetCore.Mvc.IActionResult>
+			Get(int? count)
 		{
-			Application.LogsFeature.Commands.CreateLogCommand
-				command = new Application.LogsFeature.Commands.CreateLogCommand();
+			Application.LogsFeature.Queries.GetLogsQuery
+				query = new Application.LogsFeature.Queries.GetLogsQuery
+				{
+					Count = count,
+				};
 
-			FluentResults.Result<System.Guid>
-				result = await Mediator.Send(command);
+			var result =
+				await Mediator.Send(query);
 
-			// قبلا در فیلم‌های مربوطه گفتیم که دستور ذیل خطا می‌دهد
-			//return result;
-
-			if (result.IsSuccess)
-			{
-				return Ok(value: result);
-			}
-			else
-			{
-				return BadRequest(error: result.ToResult());
-			}
+			return FluentResult(result: result);
 		}
+		#endregion /Get (Get Some Logs)
 
 		#region Post (Create Log)
 		[Microsoft.AspNetCore.Mvc.HttpPost]
@@ -55,6 +58,7 @@
 			FluentResults.Result<System.Guid>
 				result = await Mediator.Send(command);
 
+			// **************************************************
 			//if (result.IsSuccess)
 			//{
 			//	return Ok(value: result);
@@ -63,8 +67,15 @@
 			//{
 			//	return BadRequest(error: result.ToResult());
 			//}
+			// **************************************************
 
+			// **************************************************
+			//return FluentResult<System.Guid>(result: result);
+			// **************************************************
+
+			// **************************************************
 			return FluentResult(result: result);
+			// **************************************************
 		}
 		#endregion /Post (Create Log)
 	}

@@ -1,20 +1,14 @@
 ﻿using FluentValidation;
 
-namespace LoggingMicroservice.Application.LogsFeature.Validators
+namespace LoggingMicroservice.Application.LogsFeature.Commands.Validators
 {
 	public class CreateLogCommandValidator :
 		FluentValidation.AbstractValidator<Commands.CreateLogCommand>
 	{
 		public CreateLogCommandValidator() : base()
 		{
-			// NotNull -> Extension Method -> using FluentValidation;
 			RuleFor(current => current.ApplicationName)
-				.NotNull()
-				.WithErrorCode(errorCode: "10")
-				.WithMessage(errorMessage: Resources.Messages.ErrorRequiredFluent)
-
 				.NotEmpty()
-				.WithErrorCode(errorCode: "11")
 				.WithMessage(errorMessage: Resources.Messages.ErrorRequiredFluent)
 				;
 		}

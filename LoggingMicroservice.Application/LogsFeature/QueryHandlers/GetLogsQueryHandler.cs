@@ -46,11 +46,11 @@
 				// **************************************************
 				//result.WithValue(value: logs);
 
-				string successInsert =
+				string successInsertMessage =
 					string.Format(Resources.Messages.SuccessInsert, nameof(Domain.Models.Log));
 
 				result.WithSuccess
-					(successMessage: successInsert);
+					(successMessage: successInsertMessage);
 				// **************************************************
 			}
 			catch (System.Exception ex)

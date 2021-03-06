@@ -10,14 +10,15 @@
 	"profiles": {
 		"IIS Express": {
 			"commandName": "IISExpress",
+			"launchUrl": "test",
 			"launchBrowser": true,
-			"launchUrl": "logs",
 			"environmentVariables": {
 				"ASPNETCORE_ENVIRONMENT": "Development"
 			}
 		},
 		"LoggingMicroservice.Api": {
 			"commandName": "Project",
+			"launchUrl": "test",
 			"launchBrowser": true,
 			"environmentVariables": {
 				"ASPNETCORE_ENVIRONMENT": "Development"

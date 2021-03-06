@@ -2,6 +2,5 @@
 {
 	public interface ILogRepository : Dtx.Domain.IRepository<Models.Log>
 	{
-
 	}
 }
