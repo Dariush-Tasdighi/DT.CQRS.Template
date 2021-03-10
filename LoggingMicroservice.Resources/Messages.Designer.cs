@@ -61,6 +61,15 @@ namespace LoggingMicroservice.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The maximum length of {PropertyName} must be less than or equal to {MaxLength}!.
+        /// </summary>
+        public static string ErrorMaximumLength {
+            get {
+                return ResourceManager.GetString("ErrorMaximumLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} is required!.
         /// </summary>
         public static string ErrorRequired {

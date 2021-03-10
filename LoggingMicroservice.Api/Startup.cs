@@ -19,12 +19,12 @@ namespace LoggingMicroservice.Api
 		{
 			services.AddControllers();
 
-			//AddFluentValidation -> Extension Method -> using FluentValidation.AspNetCore;
+			// AddFluentValidation->Extension Method-> using FluentValidation.AspNetCore;
 			//services.AddControllers()
 			//	.AddFluentValidation(current =>
 			//	{
 			//		current.RegisterValidatorsFromAssemblyContaining
-			//			<Application.LogsFeature.Validators.CreateLogCommandValidator>();
+			//			<Application.LogsFeature.Commands.CreateLogCommandValidator>();
 
 			//		current.LocalizationEnabled = true; // Default: [true]
 			//		current.AutomaticValidationEnabled = true; // Default: [true]

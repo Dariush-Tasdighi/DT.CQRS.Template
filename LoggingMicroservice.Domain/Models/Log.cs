@@ -49,12 +49,11 @@
 		// **********
 
 		// **********
-		[System.ComponentModel.DataAnnotations.MaxLength(length: 100)]
+		[System.ComponentModel.DataAnnotations.MaxLength(length: 200)]
 		public string RequestPath { get; set; }
 		// **********
 
 		// **********
-		[System.ComponentModel.DataAnnotations.MaxLength(length: 100)]
 		public string HttpReferrer { get; set; }
 		// **********
 
