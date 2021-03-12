@@ -9,7 +9,8 @@
 
 		protected MediatR.IMediator Mediator { get; }
 
-		protected Microsoft.AspNetCore.Mvc.IActionResult FluentResult<T>(FluentResults.Result<T> result)
+		protected Microsoft.AspNetCore.Mvc.IActionResult
+			FluentResult<T>(FluentResults.Result<T> result)
 		{
 			if (result.IsSuccess)
 			{
