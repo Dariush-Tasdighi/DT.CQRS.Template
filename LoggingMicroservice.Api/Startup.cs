@@ -1,7 +1,8 @@
-using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+
+//using FluentValidation.AspNetCore;
 
 namespace LoggingMicroservice.Api
 {
@@ -45,6 +46,8 @@ namespace LoggingMicroservice.Api
 			{
 				app.UseDeveloperExceptionPage();
 			}
+
+			app.UseExceptionHandlingMiddleware();
 
 			app.UseRouting();
 

@@ -1,7 +1,7 @@
 ﻿namespace LoggingMicroservice.Application.LogsFeature.Queries
 {
-	public class GetLogsQuery :
-		Dtx.Mediator.CommandWithReturnValue
+	public class GetLogsQuery : object,
+		Dtx.Mediator.ICommandWithReturnValue
 		<System.Collections.Generic.IEnumerable<Domain.ViewModels.GetLogsQueryResponseViewModel>>
 	{
 		public GetLogsQuery() : base()

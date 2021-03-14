@@ -6,12 +6,13 @@
 
 	<ItemGroup>
 		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+		<PackageReference Include="FluentValidation.AspNetCore" Version="9.5.2" />
 		<PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
-		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <ProjectReference Include="..\Dtx.Logging\Dtx.Logging.csproj" />
+	  <ProjectReference Include="..\Dtx\Dtx.csproj" />
 	  <ProjectReference Include="..\LoggingMicroservice.Application\LoggingMicroservice.Application.csproj" />
 	</ItemGroup>
 

@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using FluentValidation;
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -25,10 +26,17 @@ namespace LoggingMicroservice.Core
 			// **************************************************
 
 			// **************************************************
-			// AddMediatR() -> Extension Method -> using MediatR;
-			// GetTypeInfo() -> Extension Method -> using System.Reflection;
+			// AddMediatR -> Extension Method -> using MediatR;
+			// GetTypeInfo -> Extension Method -> using System.Reflection;
 			services.AddMediatR
 				(typeof(Application.LogsFeature.MappingProfile).GetTypeInfo().Assembly);
+
+			// AddValidatorsFromAssembly -> Extension Method -> using FluentValidation;
+			services.AddValidatorsFromAssembly
+				(typeof(Application.LogsFeature.Commands.CreateLogCommandValidator).Assembly);
+
+			services.AddTransient
+				(typeof(MediatR.IPipelineBehavior<,>), typeof(Dtx.Mediator.ValidationBehavior<,>));
 			// **************************************************
 
 			// **************************************************

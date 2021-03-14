@@ -4,7 +4,7 @@
 
 	//public class CreateLogCommand : MediatR.IRequest<FluentResults.Result<System.Guid>>
 
-	public class CreateLogCommand : Dtx.Mediator.CommandWithReturnValue<System.Guid>
+	public class CreateLogCommand : object, Dtx.Mediator.ICommandWithReturnValue<System.Guid>
 	{
 		public CreateLogCommand() : base()
 		{
