@@ -33,7 +33,7 @@ namespace LoggingMicroservice.Core
 
 			// AddValidatorsFromAssembly -> Extension Method -> using FluentValidation;
 			services.AddValidatorsFromAssembly
-				(typeof(Application.LogsFeature.Commands.CreateLogCommandValidator).Assembly);
+				(assembly: typeof(Application.LogsFeature.Commands.CreateLogCommandValidator).Assembly);
 
 			services.AddTransient
 				(typeof(MediatR.IPipelineBehavior<,>), typeof(Dtx.Mediator.ValidationBehavior<,>));
@@ -41,7 +41,8 @@ namespace LoggingMicroservice.Core
 
 			// **************************************************
 			// using Microsoft.Extensions.DependencyInjection;
-			services.AddAutoMapper(typeof(Application.LogsFeature.MappingProfile));
+			services.AddAutoMapper
+				(profileAssemblyMarkerTypes: typeof(Application.LogsFeature.MappingProfile));
 			// **************************************************
 
 			// **************************************************

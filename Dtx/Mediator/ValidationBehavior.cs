@@ -2,8 +2,9 @@
 
 namespace Dtx.Mediator
 {
-	public class ValidationBehavior<TRequest, TResponse> :
-		MediatR.IPipelineBehavior<TRequest, TResponse> where TRequest : MediatR.IRequest<TResponse>
+	public class ValidationBehavior<TRequest, TResponse> : object,
+		MediatR.IPipelineBehavior<TRequest, TResponse>
+		where TRequest : MediatR.IRequest<TResponse>
 	{
 		public ValidationBehavior
 			(System.Collections.Generic.IEnumerable<FluentValidation.IValidator<TRequest>> validators)
@@ -38,7 +39,7 @@ namespace Dtx.Mediator
 
 				if (failures.Count != 0)
 				{
-					throw new FluentValidation.ValidationException(failures);
+					throw new FluentValidation.ValidationException(errors: failures);
 				}
 			}
 
