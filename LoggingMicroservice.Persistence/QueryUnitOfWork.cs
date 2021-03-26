@@ -9,16 +9,16 @@
 		}
 
 		// **************************************************
-		private Domain.IRepositories.ILogRepository _logs;
+		private Domain.IQueryRepositories.ILogQueryRepository _logs;
 
-		public Domain.IRepositories.ILogRepository Logs
+		public Domain.IQueryRepositories.ILogQueryRepository Logs
 		{
 			get
 			{
 				if (_logs == null)
 				{
 					_logs =
-						new Repositories.LogRepository(databaseContext: DatabaseContext);
+						new Persistence.QueryRepositories.LogQueryRepository(databaseContext: DatabaseContext);
 				}
 
 				return _logs;

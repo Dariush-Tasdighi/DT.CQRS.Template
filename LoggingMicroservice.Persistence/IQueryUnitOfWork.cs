@@ -3,7 +3,7 @@
 	public interface IQueryUnitOfWork : Dtx.Domain.IQueryUnitOfWork
 	{
 		// **********
-		Domain.IRepositories.ILogRepository Logs { get; }
+		Domain.IQueryRepositories.ILogQueryRepository Logs { get; }
 		// **********
 	}
 }

@@ -1,14 +1,13 @@
 ﻿namespace LoggingMicroservice.Application.LogsFeature.CommandHandlers
 {
-	public class GetLogsQueryHandler :
-		object,
-		MediatR.IRequestHandler
-		<Queries.GetLogsQuery, FluentResults.Result<System.Collections.Generic.IEnumerable<Domain.ViewModels.GetLogsQueryResponseViewModel>>>
+	public class GetLogsQueryHandler : object,
+		Dtx.Mediator.IRequestHandler
+		<Queries.GetLogsQuery, System.Collections.Generic.IEnumerable<Domain.ViewModels.GetLogsQueryResponseViewModel>>
 	{
 		public GetLogsQueryHandler
 			(Dtx.Logging.ILogger<CreateLogCommandHandler> logger,
 			AutoMapper.IMapper mapper,
-			Persistence.IUnitOfWork unitOfWork) : base()
+			Persistence.IQueryUnitOfWork unitOfWork) : base()
 		{
 			Logger = logger;
 			Mapper = mapper;
@@ -17,7 +16,7 @@
 
 		protected AutoMapper.IMapper Mapper { get; }
 
-		protected Persistence.IUnitOfWork UnitOfWork { get; }
+		protected Persistence.IQueryUnitOfWork UnitOfWork { get; }
 
 		protected Dtx.Logging.ILogger<CreateLogCommandHandler> Logger { get; }
 
@@ -31,7 +30,7 @@
 		{
 			FluentResults.Result
 				<System.Collections.Generic.IEnumerable
-				< Domain.ViewModels.GetLogsQueryResponseViewModel >> result = null;
+				<Domain.ViewModels.GetLogsQueryResponseViewModel>> result = null;
 
 			try
 			{
@@ -39,18 +38,12 @@
 				var logs =
 					await
 					UnitOfWork.Logs
-					.GetAllAsync();
-					
+					.GetSomeAsync(count: request.Count.Value)
+					;
 				// **************************************************
 
 				// **************************************************
-				//result.WithValue(value: logs);
-
-				string successInsertMessage =
-					string.Format(Resources.Messages.SuccessInsert, nameof(Domain.Models.Log));
-
-				result.WithSuccess
-					(successMessage: successInsertMessage);
+				result.WithValue(value: logs);
 				// **************************************************
 			}
 			catch (System.Exception ex)

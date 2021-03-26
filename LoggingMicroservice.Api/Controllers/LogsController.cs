@@ -77,10 +77,10 @@
 			System.Threading.Tasks.Task
 			<Microsoft.AspNetCore.Mvc.IActionResult>
 			Post([Microsoft.AspNetCore.Mvc.FromBody]
-			Application.LogsFeature.Commands.CreateLogCommand command)
+			Application.LogsFeature.Commands.CreateLogCommand request)
 		{
 			var result =
-				await Mediator.Send(command);
+				await Mediator.Send(request);
 
 			return FluentResult(result: result);
 		}
@@ -100,16 +100,10 @@
 			async
 			System.Threading.Tasks.Task
 			<Microsoft.AspNetCore.Mvc.IActionResult>
-			Get(int? count)
+			Get(Application.LogsFeature.Queries.GetLogsQuery request)
 		{
-			Application.LogsFeature.Queries.GetLogsQuery
-				query = new Application.LogsFeature.Queries.GetLogsQuery
-				{
-					Count = count,
-				};
-
 			var result =
-				await Mediator.Send(query);
+				await Mediator.Send(request);
 
 			return FluentResult(result: result);
 		}

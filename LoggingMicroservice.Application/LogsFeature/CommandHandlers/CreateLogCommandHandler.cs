@@ -77,8 +77,9 @@
 
 namespace LoggingMicroservice.Application.LogsFeature.CommandHandlers
 {
-	public class CreateLogCommandHandler :
-		object, Dtx.Mediator.IRequestHandler<Commands.CreateLogCommand, System.Guid>
+	public class CreateLogCommandHandler : object,
+		Dtx.Mediator.IRequestHandler
+		<Commands.CreateLogCommand, System.Guid>
 	{
 		public CreateLogCommandHandler
 			(Dtx.Logging.ILogger<CreateLogCommandHandler> logger,

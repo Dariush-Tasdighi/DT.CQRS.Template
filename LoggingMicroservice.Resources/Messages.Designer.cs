@@ -61,6 +61,24 @@ namespace LoggingMicroservice.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The minimum value of {PropertyName} must be greater than {valueToCompare}!.
+        /// </summary>
+        public static string ErrorGreaterThanFluent {
+            get {
+                return ResourceManager.GetString("ErrorGreaterThanFluent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The maximum value of {PropertyName} must be less than {valueToCompare}!.
+        /// </summary>
+        public static string ErrorLessThanFluent {
+            get {
+                return ResourceManager.GetString("ErrorLessThanFluent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The maximum length of {PropertyName} must be less than or equal to {MaxLength}!.
         /// </summary>
         public static string ErrorMaximumLength {
