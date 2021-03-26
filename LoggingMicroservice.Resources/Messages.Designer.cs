@@ -61,7 +61,7 @@ namespace LoggingMicroservice.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The minimum value of {PropertyName} must be greater than {valueToCompare}!.
+        ///   Looks up a localized string similar to The minimum value of {PropertyName} must be greater than {ComparisonValue}!.
         /// </summary>
         public static string ErrorGreaterThanFluent {
             get {
@@ -70,7 +70,7 @@ namespace LoggingMicroservice.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The maximum value of {PropertyName} must be less than {valueToCompare}!.
+        ///   Looks up a localized string similar to The maximum value of {PropertyName} must be less than {ComparisonValue}!.
         /// </summary>
         public static string ErrorLessThanFluent {
             get {

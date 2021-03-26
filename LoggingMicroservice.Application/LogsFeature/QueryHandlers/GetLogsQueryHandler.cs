@@ -28,9 +28,10 @@
 				<Domain.ViewModels.GetLogsQueryResponseViewModel>>>
 			Handle(Queries.GetLogsQuery request, System.Threading.CancellationToken cancellationToken)
 		{
-			FluentResults.Result
+			var result =
+				new FluentResults.Result
 				<System.Collections.Generic.IEnumerable
-				<Domain.ViewModels.GetLogsQueryResponseViewModel>> result = null;
+				<Domain.ViewModels.GetLogsQueryResponseViewModel>>();
 
 			try
 			{

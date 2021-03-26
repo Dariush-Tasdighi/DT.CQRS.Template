@@ -15,7 +15,7 @@ namespace LoggingMicroservice.Application.LogsFeature.Queries
 				.WithMessage(errorMessage: Resources.Messages.ErrorGreaterThanFluent)
 
 				.LessThan(valueToCompare: 101)
-				.WithMessage(errorMessage: Resources.Messages.ErrorGreaterThanFluent)
+				.WithMessage(errorMessage: Resources.Messages.ErrorLessThanFluent)
 				;
 		}
 	}

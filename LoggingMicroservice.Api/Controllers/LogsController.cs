@@ -77,7 +77,7 @@
 			System.Threading.Tasks.Task
 			<Microsoft.AspNetCore.Mvc.IActionResult>
 			Post([Microsoft.AspNetCore.Mvc.FromBody]
-			Application.LogsFeature.Commands.CreateLogCommand request)
+				Application.LogsFeature.Commands.CreateLogCommand request)
 		{
 			var result =
 				await Mediator.Send(request);
@@ -87,7 +87,7 @@
 		#endregion /Post (Create Log)
 
 		#region Get (Get Some Logs)
-		[Microsoft.AspNetCore.Mvc.HttpGet(template: "{count}")]
+		[Microsoft.AspNetCore.Mvc.HttpGet(template: "{count?}")]
 
 		[Microsoft.AspNetCore.Mvc.ProducesResponseType
 			(type: typeof(FluentResults.Result<System.Collections.Generic.IList<Domain.ViewModels.GetLogsQueryResponseViewModel>>),
@@ -100,8 +100,14 @@
 			async
 			System.Threading.Tasks.Task
 			<Microsoft.AspNetCore.Mvc.IActionResult>
-			Get(Application.LogsFeature.Queries.GetLogsQuery request)
+			Get([Microsoft.AspNetCore.Mvc.FromRoute] int? count)
 		{
+			var request =
+				new Application.LogsFeature.Queries.GetLogsQuery
+				{
+					Count = count,
+				};
+
 			var result =
 				await Mediator.Send(request);
 
