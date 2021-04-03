@@ -90,7 +90,7 @@
 		[Microsoft.AspNetCore.Mvc.HttpGet(template: "{count?}")]
 
 		[Microsoft.AspNetCore.Mvc.ProducesResponseType
-			(type: typeof(FluentResults.Result<System.Collections.Generic.IList<Domain.ViewModels.GetLogsQueryResponseViewModel>>),
+			(type: typeof(FluentResults.Result<System.Collections.Generic.IList<Persistence.ViewModels.GetLogsQueryResponseViewModel>>),
 			statusCode: Microsoft.AspNetCore.Http.StatusCodes.Status200OK)]
 
 		[Microsoft.AspNetCore.Mvc.ProducesResponseType

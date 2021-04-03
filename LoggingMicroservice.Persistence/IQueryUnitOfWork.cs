@@ -2,8 +2,6 @@
 {
 	public interface IQueryUnitOfWork : Dtx.Domain.IQueryUnitOfWork
 	{
-		// **********
-		Domain.IQueryRepositories.ILogQueryRepository Logs { get; }
-		// **********
+		public IQueryRepositories.ILogQueryRepository Logs { get; }
 	}
 }

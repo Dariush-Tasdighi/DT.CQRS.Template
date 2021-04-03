@@ -2,7 +2,7 @@
 {
 	public class GetLogsQuery : object,
 		Dtx.Mediator.IRequest
-		<System.Collections.Generic.IEnumerable<Domain.ViewModels.GetLogsQueryResponseViewModel>>
+		<System.Collections.Generic.IEnumerable<Persistence.ViewModels.GetLogsQueryResponseViewModel>>
 	{
 		public GetLogsQuery() : base()
 		{

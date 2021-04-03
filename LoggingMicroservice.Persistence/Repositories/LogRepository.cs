@@ -2,7 +2,7 @@
 {
 	public class LogRepository :
 		Dtx.Persistence.Repository<Domain.Models.Log>,
-		Domain.IRepositories.ILogRepository
+		IRepositories.ILogRepository
 	{
 		protected internal LogRepository
 			(Microsoft.EntityFrameworkCore.DbContext databaseContext) : base(databaseContext: databaseContext)

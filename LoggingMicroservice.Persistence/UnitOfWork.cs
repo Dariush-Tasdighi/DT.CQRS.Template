@@ -9,9 +9,9 @@
 		}
 
 		// **************************************************
-		private Domain.IRepositories.ILogRepository _logs;
+		private IRepositories.ILogRepository _logs;
 
-		public Domain.IRepositories.ILogRepository Logs
+		public IRepositories.ILogRepository Logs
 		{
 			get
 			{

@@ -1,4 +1,4 @@
-﻿namespace LoggingMicroservice.Domain.ViewModels
+﻿namespace LoggingMicroservice.Persistence.ViewModels
 {
 	public class GetLogsQueryResponseViewModel : object
 	{
@@ -11,7 +11,7 @@
 		// **********
 
 		// **********
-		public Enums.LogLevel Level { get; set; }
+		public Domain.Enums.LogLevel Level { get; set; }
 		// **********
 
 		// **********

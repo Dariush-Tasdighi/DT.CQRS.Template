@@ -5,7 +5,7 @@ namespace LoggingMicroservice.Persistence.QueryRepositories
 {
 	public class LogQueryRepository :
 		Dtx.Persistence.QueryRepository<Domain.Models.Log>,
-		Domain.IQueryRepositories.ILogQueryRepository
+		IQueryRepositories.ILogQueryRepository
 	{
 		public LogQueryRepository(QueryDatabaseContext databaseContext) : base(databaseContext)
 		{
@@ -14,7 +14,7 @@ namespace LoggingMicroservice.Persistence.QueryRepositories
 		public
 			async
 			System.Threading.Tasks.Task
-			<System.Collections.Generic.IList<Domain.ViewModels.GetLogsQueryResponseViewModel>>
+			<System.Collections.Generic.IList<ViewModels.GetLogsQueryResponseViewModel>>
 			GetSomeAsync(int count)
 		{
 			// Note: ToListAsync -> Extension Method -> using Microsoft.EntityFrameworkCore;
@@ -24,7 +24,7 @@ namespace LoggingMicroservice.Persistence.QueryRepositories
 				.OrderByDescending(current => current.TimeStamp)
 				.Skip(count: 0)
 				.Take(count: count)
-				.Select(current => new Domain.ViewModels.GetLogsQueryResponseViewModel()
+				.Select(current => new ViewModels.GetLogsQueryResponseViewModel()
 				{
 					Id = current.Id,
 					Level = current.Level,

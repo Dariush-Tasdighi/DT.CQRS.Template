@@ -2,7 +2,7 @@
 {
 	public class GetLogsQueryHandler : object,
 		Dtx.Mediator.IRequestHandler
-		<Queries.GetLogsQuery, System.Collections.Generic.IEnumerable<Domain.ViewModels.GetLogsQueryResponseViewModel>>
+		<Queries.GetLogsQuery, System.Collections.Generic.IEnumerable<Persistence.ViewModels.GetLogsQueryResponseViewModel>>
 	{
 		public GetLogsQueryHandler
 			(Dtx.Logging.ILogger<CreateLogCommandHandler> logger,
@@ -25,13 +25,13 @@
 			System.Threading.Tasks.Task
 			<FluentResults.Result
 				<System.Collections.Generic.IEnumerable
-				<Domain.ViewModels.GetLogsQueryResponseViewModel>>>
+				<Persistence.ViewModels.GetLogsQueryResponseViewModel>>>
 			Handle(Queries.GetLogsQuery request, System.Threading.CancellationToken cancellationToken)
 		{
 			var result =
 				new FluentResults.Result
 				<System.Collections.Generic.IEnumerable
-				<Domain.ViewModels.GetLogsQueryResponseViewModel>>();
+				<Persistence.ViewModels.GetLogsQueryResponseViewModel>>();
 
 			try
 			{
