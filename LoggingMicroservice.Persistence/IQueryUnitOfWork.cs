@@ -2,6 +2,6 @@
 {
 	public interface IQueryUnitOfWork : Dtx.Persistence.IQueryUnitOfWork
 	{
-		public IQueryRepositories.ILogQueryRepository Logs { get; }
+		public Logs.Repositories.ILogQueryRepository Logs { get; }
 	}
 }

@@ -1,4 +1,4 @@
-﻿namespace LoggingMicroservice.Application.LogsFeature.CommandHandlers
+﻿namespace LoggingMicroservice.Application.Logs.CommandHandlers
 {
 	public class GetLogsQueryHandler : object,
 		Dtx.Mediator.IRequestHandler

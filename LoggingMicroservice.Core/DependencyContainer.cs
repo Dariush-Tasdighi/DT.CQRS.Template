@@ -29,11 +29,11 @@ namespace LoggingMicroservice.Core
 			// AddMediatR -> Extension Method -> using MediatR;
 			// GetTypeInfo -> Extension Method -> using System.Reflection;
 			services.AddMediatR
-				(typeof(Application.LogsFeature.MappingProfile).GetTypeInfo().Assembly);
+				(typeof(Application.Logs.MappingProfile).GetTypeInfo().Assembly);
 
 			// AddValidatorsFromAssembly -> Extension Method -> using FluentValidation;
 			services.AddValidatorsFromAssembly
-				(assembly: typeof(Application.LogsFeature.Commands.CreateLogCommandValidator).Assembly);
+				(assembly: typeof(Application.Logs.Commands.CreateLogCommandValidator).Assembly);
 
 			services.AddTransient
 				(typeof(MediatR.IPipelineBehavior<,>), typeof(Dtx.Mediator.ValidationBehavior<,>));
@@ -42,7 +42,7 @@ namespace LoggingMicroservice.Core
 			// **************************************************
 			// using Microsoft.Extensions.DependencyInjection;
 			services.AddAutoMapper
-				(profileAssemblyMarkerTypes: typeof(Application.LogsFeature.MappingProfile));
+				(profileAssemblyMarkerTypes: typeof(Application.Logs.MappingProfile));
 			// **************************************************
 
 			// **************************************************

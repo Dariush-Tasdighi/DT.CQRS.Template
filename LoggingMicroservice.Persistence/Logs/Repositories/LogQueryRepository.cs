@@ -1,11 +1,10 @@
 ﻿using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
-namespace LoggingMicroservice.Persistence.QueryRepositories
+namespace LoggingMicroservice.Persistence.Logs.Repositories
 {
 	public class LogQueryRepository :
-		Dtx.Persistence.QueryRepository<Domain.Models.Log>,
-		IQueryRepositories.ILogQueryRepository
+		Dtx.Persistence.QueryRepository<Domain.Models.Log>, ILogQueryRepository
 	{
 		public LogQueryRepository(QueryDatabaseContext databaseContext) : base(databaseContext)
 		{

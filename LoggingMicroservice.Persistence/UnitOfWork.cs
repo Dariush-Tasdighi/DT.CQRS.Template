@@ -9,16 +9,16 @@
 		}
 
 		// **************************************************
-		private IRepositories.ILogRepository _logs;
+		private Logs.Repositories.ILogRepository _logs;
 
-		public IRepositories.ILogRepository Logs
+		public Logs.Repositories.ILogRepository Logs
 		{
 			get
 			{
 				if (_logs == null)
 				{
 					_logs =
-						new Repositories.LogRepository(databaseContext: DatabaseContext);
+						new Logs.Repositories.LogRepository(databaseContext: DatabaseContext);
 				}
 
 				return _logs;

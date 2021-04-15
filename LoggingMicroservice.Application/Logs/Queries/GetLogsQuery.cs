@@ -1,4 +1,4 @@
-﻿namespace LoggingMicroservice.Application.LogsFeature.Queries
+﻿namespace LoggingMicroservice.Application.Logs.Queries
 {
 	public class GetLogsQuery : object,
 		Dtx.Mediator.IRequest

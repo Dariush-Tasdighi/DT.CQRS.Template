@@ -1,4 +1,4 @@
-﻿namespace LoggingMicroservice.Persistence.IQueryRepositories
+﻿namespace LoggingMicroservice.Persistence.Logs.Repositories
 {
 	public interface ILogQueryRepository : Dtx.Persistence.IQueryRepository<Domain.Models.Log>
 	{

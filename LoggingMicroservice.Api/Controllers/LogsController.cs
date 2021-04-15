@@ -77,7 +77,7 @@
 			System.Threading.Tasks.Task
 			<Microsoft.AspNetCore.Mvc.IActionResult>
 			Post([Microsoft.AspNetCore.Mvc.FromBody]
-				Application.LogsFeature.Commands.CreateLogCommand request)
+				Application.Logs.Commands.CreateLogCommand request)
 		{
 			var result =
 				await Mediator.Send(request);
@@ -103,7 +103,7 @@
 			Get([Microsoft.AspNetCore.Mvc.FromRoute] int? count)
 		{
 			var request =
-				new Application.LogsFeature.Queries.GetLogsQuery
+				new Application.Logs.Queries.GetLogsQuery
 				{
 					Count = count,
 				};

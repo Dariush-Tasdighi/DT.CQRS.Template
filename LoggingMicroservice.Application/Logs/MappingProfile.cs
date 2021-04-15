@@ -1,4 +1,4 @@
-﻿namespace LoggingMicroservice.Application.LogsFeature
+﻿namespace LoggingMicroservice.Application.Logs
 {
 	public class MappingProfile : AutoMapper.Profile
 	{

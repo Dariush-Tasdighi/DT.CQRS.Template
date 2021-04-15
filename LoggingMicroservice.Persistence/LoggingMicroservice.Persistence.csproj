@@ -13,4 +13,9 @@
 		<ProjectReference Include="..\LoggingMicroservice.Domain\LoggingMicroservice.Domain.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="IQueryRepositories\" />
+	  <Folder Include="IRepositories\" />
+	</ItemGroup>
+
 </Project>

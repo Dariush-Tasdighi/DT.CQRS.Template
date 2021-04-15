@@ -1,4 +1,4 @@
-﻿//namespace LoggingMicroservice.Application.LogsFeature.CommandHandlers
+﻿//namespace LoggingMicroservice.Application.Logs.CommandHandlers
 //{
 //	public class CreateLogCommandHandler :
 //		object, MediatR.IRequestHandler<Commands.CreateLogCommand, FluentResults.Result<System.Guid>>
@@ -75,7 +75,7 @@
 //	}
 //}
 
-namespace LoggingMicroservice.Application.LogsFeature.CommandHandlers
+namespace LoggingMicroservice.Application.Logs.CommandHandlers
 {
 	public class CreateLogCommandHandler : object,
 		Dtx.Mediator.IRequestHandler
