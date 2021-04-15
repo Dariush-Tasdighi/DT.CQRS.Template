@@ -5,19 +5,19 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <None Remove="Mediator\CommandHandlerWithReturnValue.cs.BAK" />
+		<None Remove="Mediator\CommandHandlerWithReturnValue.cs.BAK" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Include="Mediator\CommandHandlerWithReturnValue.cs.BAK" />
+		<Compile Include="Mediator\CommandHandlerWithReturnValue.cs.BAK" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="FluentResults" Version="2.3.0" />
-	  <PackageReference Include="FluentValidation" Version="10.0.2" />
-	  <PackageReference Include="MediatR" Version="9.0.0" />
-	  <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.5" />
-	  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.5" />
+		<PackageReference Include="MediatR" Version="9.0.0" />
+		<PackageReference Include="FluentResults" Version="2.3.0" />
+		<PackageReference Include="FluentValidation" Version="10.0.2" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.5" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.5" />
 	</ItemGroup>
 
 </Project>
