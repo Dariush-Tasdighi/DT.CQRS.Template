@@ -1,6 +1,6 @@
 ﻿namespace LoggingMicroservice.Persistence.IRepositories
 {
-	public interface ILogRepository : Dtx.Domain.IRepository<Domain.Models.Log>
+	public interface ILogRepository : Dtx.Persistence.IRepository<Domain.Models.Log>
 	{
 	}
 }

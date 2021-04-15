@@ -14,10 +14,10 @@
 
 	<ItemGroup>
 	  <PackageReference Include="FluentResults" Version="2.3.0" />
-	  <PackageReference Include="FluentValidation" Version="9.5.3" />
+	  <PackageReference Include="FluentValidation" Version="10.0.2" />
 	  <PackageReference Include="MediatR" Version="9.0.0" />
-	  <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.4" />
-	  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.4" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.5" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.5" />
 	</ItemGroup>
 
 </Project>

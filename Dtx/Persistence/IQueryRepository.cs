@@ -1,6 +1,6 @@
-﻿namespace Dtx.Domain
+﻿namespace Dtx.Persistence
 {
-	public interface IQueryRepository<T> where T : IEntity
+	public interface IQueryRepository<T> where T : Domain.IEntity
 	{
 		System.Threading.Tasks.Task<T> GetByIdAsync(System.Guid id);
 

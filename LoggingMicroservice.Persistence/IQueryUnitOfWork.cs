@@ -1,6 +1,6 @@
 ﻿namespace LoggingMicroservice.Persistence
 {
-	public interface IQueryUnitOfWork : Dtx.Domain.IQueryUnitOfWork
+	public interface IQueryUnitOfWork : Dtx.Persistence.IQueryUnitOfWork
 	{
 		public IQueryRepositories.ILogQueryRepository Logs { get; }
 	}

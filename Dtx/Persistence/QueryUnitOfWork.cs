@@ -3,7 +3,7 @@
 namespace Dtx.Persistence
 {
 	public abstract class QueryUnitOfWork<T> :
-		object, Domain.IQueryUnitOfWork where T : Microsoft.EntityFrameworkCore.DbContext
+		object, IQueryUnitOfWork where T : Microsoft.EntityFrameworkCore.DbContext
 	{
 		public QueryUnitOfWork(Options options) : base()
 		{

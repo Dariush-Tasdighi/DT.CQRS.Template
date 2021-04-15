@@ -1,10 +1,9 @@
-﻿using System.Linq;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace Dtx.Persistence
 {
 	public abstract class Repository<T> :
-		object, Domain.IRepository<T> where T : class, Domain.IEntity
+		object, IRepository<T> where T : class, Domain.IEntity
 	{
 		protected internal Repository(Microsoft.EntityFrameworkCore.DbContext databaseContext) : base()
 		{

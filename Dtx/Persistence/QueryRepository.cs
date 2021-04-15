@@ -3,7 +3,7 @@
 namespace Dtx.Persistence
 {
 	public abstract class QueryRepository<TEntity> :
-		object, Domain.IQueryRepository<TEntity> where TEntity : class, Domain.IEntity
+		object, IQueryRepository<TEntity> where TEntity : class, Domain.IEntity
 	{
 		protected QueryRepository
 			(Microsoft.EntityFrameworkCore.DbContext databaseContext) : base()

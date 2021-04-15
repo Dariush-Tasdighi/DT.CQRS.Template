@@ -1,4 +1,4 @@
-﻿namespace Dtx.Domain
+﻿namespace Dtx.Persistence
 {
 	public interface IUnitOfWork : IQueryUnitOfWork
 	{

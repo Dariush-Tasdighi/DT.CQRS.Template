@@ -1,6 +1,6 @@
-﻿namespace Dtx.Domain
+﻿namespace Dtx.Persistence
 {
-	public interface IRepository<T> : IQueryRepository<T> where T : IEntity
+	public interface IRepository<T> : IQueryRepository<T> where T : Domain.IEntity
 	{
 		System.Threading.Tasks.Task InsertAsync(T entity);
 
